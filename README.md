@@ -2,9 +2,8 @@
 
 ## Project Overview
 
-**Project Title**: Retail Sales Analysis  
-**Level**: Beginner  
-**Database**: `p1_retail_db`
+**Project Title**: Retail Sales Analysis 
+**Database**: `sql_project_p1`
 
 This project is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. This project is ideal for those who are starting their journey in data analysis and want to build a solid foundation in SQL.
 
@@ -19,7 +18,7 @@ This project is designed to demonstrate SQL skills and techniques typically used
 
 ### 1. Database Setup
 
-- **Database Creation**: The project starts by creating a database named `p1_retail_db`.
+- **Database Creation**: The project starts by creating a database named `sql_project_p1`.
 - **Table Creation**: A table named `retail_sales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 
 ```sql
@@ -44,26 +43,72 @@ CREATE TABLE retail_sales
 ### 2. Data Exploration & Cleaning
 
 - **Record Count**: Determine the total number of records in the dataset.
+- **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 - **Customer Count**: Find out how many unique customers are in the dataset.
 - **Category Count**: Identify all unique product categories in the dataset.
-- **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
 ```sql
-SELECT COUNT(*) FROM retail_sales;
-SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
-SELECT DISTINCT category FROM retail_sales;
+SELECT * FROM retail_sales
+LIMIT 10;
 
+SELECT COUNT(*) FROM retail_sales;
+
+-- DATA CLEANING
 SELECT * FROM retail_sales
 WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
-
+	transactions_id IS NULL
+	OR
+	sale_date IS NULL
+	OR
+	sale_time IS NULL
+	OR
+	customer_id	IS NULL
+	OR
+	gender IS NULL
+	OR
+	category IS NULL
+	OR	
+	quantity IS NULL
+	OR
+	price_per_unit IS NULL
+	OR
+	cogs IS NULL
+	OR
+	total_sale IS NULL;
+	
+-- DELETE
 DELETE FROM retail_sales
 WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+	transactions_id IS NULL
+	OR
+	sale_date IS NULL
+	OR
+	sale_time IS NULL
+	OR
+	customer_id	IS NULL
+	OR
+	gender IS NULL
+	OR
+	category IS NULL
+	OR	
+	quantity IS NULL
+	OR
+	price_per_unit IS NULL
+	OR
+	cogs IS NULL
+	OR
+	total_sale IS NULL;
+
+
+-- DATA EXPLORATION
+-- How many sales we have?
+SELECT COUNT(*) AS total_sale FROM retail_sales;
+
+-- How many unique customers we have?
+SELECT COUNT(DISTINCT customer_id) AS total_customer FROM retail_sales;
+
+-- How many categories do we have?
+SELECT DISTINCT category FROM retail_sales;
 ```
 
 ### 3. Data Analysis & Findings
@@ -194,6 +239,4 @@ ORDER BY 2;
 
 ## Conclusion
 
-This project serves as a comprehensive introduction to SQL for data analysts, covering database setup, data cleaning, exploratory data analysis, and business-driven SQL queries. The findings from this project can help drive business decisions by understanding sales patterns, customer behavior, and product performance.
-
-
+This SQL project provides a practical foundation for retail sales data analysis, covering essential database operations and business intelligence queries.The findings from this project can help drive business decisions by understanding sales patterns, customer behavior, and product performance.
