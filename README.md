@@ -55,7 +55,7 @@ LIMIT 10;
 ```sql
 SELECT COUNT(*) FROM retail_sales;
 ```
--- DATA CLEANING
+**DATA CLEANING**
 
 ```sql
 SELECT * FROM retail_sales
@@ -105,7 +105,7 @@ WHERE
 	total_sale IS NULL;
 ```
 
--- DATA EXPLORATION
+**DATA EXPLORATION**
 ```sql
 -- How many sales we have?
 SELECT COUNT(*) AS total_sale FROM retail_sales;
