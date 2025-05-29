@@ -51,10 +51,13 @@ CREATE TABLE retail_sales
 ```sql
 SELECT * FROM retail_sales
 LIMIT 10;
-
+```
+```sql
 SELECT COUNT(*) FROM retail_sales;
-
+```
 -- DATA CLEANING
+
+```sql
 SELECT * FROM retail_sales
 WHERE 
 	transactions_id IS NULL
@@ -76,7 +79,8 @@ WHERE
 	cogs IS NULL
 	OR
 	total_sale IS NULL;
-	
+```
+```sql	
 -- DELETE
 DELETE FROM retail_sales
 WHERE 
@@ -99,15 +103,20 @@ WHERE
 	cogs IS NULL
 	OR
 	total_sale IS NULL;
-
+```
 
 -- DATA EXPLORATION
+```sql
 -- How many sales we have?
 SELECT COUNT(*) AS total_sale FROM retail_sales;
+```
 
+```sql
 -- How many unique customers we have?
 SELECT COUNT(DISTINCT customer_id) AS total_customer FROM retail_sales;
+```
 
+```sql
 -- How many categories do we have?
 SELECT DISTINCT category FROM retail_sales;
 ```
